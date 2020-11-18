@@ -14,6 +14,7 @@ screen = pygame.display.set_mode((1080, 720))
 #importer l'arriere plan de notre jeu
 background = pygame.image.load('assets/bg.jpg')
 
+
 #importer la banniere
 banner = pygame.image.load('assets/banner.png')
 banner = pygame.transform.scale(banner, (500, 500))

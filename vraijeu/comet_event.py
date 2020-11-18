@@ -8,7 +8,7 @@ class CometFallEvent:
     #lors du chargement => creer un compteur
     def __init__(self, game):
         self.percent = 0
-        self.percent_speed = 5
+        self.percent_speed = 35
         self.game = game
         self.fall_mode = True
 
@@ -28,13 +28,16 @@ class CometFallEvent:
 
 
     def meteor_fall(self):
-        self.all_comets.add(Comet(self))
+        for i in range (3,10):
+            self.all_comets.add(Comet(self))
+
 
     def attempt_fall(self):
         #la jauge d evenement est chargée
         if self.is_full_loaded() and len(self.game.all_monsters) == 0:
             print("Pluie de cométe !!")
             self.meteor_fall()
+            self.reset_percent()
             self.fall_mode = True #activer l'evenement
 
 
@@ -57,7 +60,7 @@ class CometFallEvent:
             10  # épaisseur de la barre
         ])
         #barre rouge (jauge d'event)
-        pygame.draw.rect(surface, (187, 11, 11), [
+        pygame.draw.rect(surface, (18, 11, 11), [
             0,  # axe des x
             surface.get_height() - 20,  # axe des y
             (surface.get_width() / 100) * self.percent,  # longueur de la fenetre
