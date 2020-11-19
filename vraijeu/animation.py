@@ -9,8 +9,8 @@ class AnimateSprite (pygame.sprite.Sprite):
     def __init__(self, sprite_name):
         super().__init__()
         self.image = pygame.image.load(f'assets/{sprite_name}.png')
-        self.current_image = 0  #commencer l'anim à l'image 0
-        self.images = animation.get(sprite_name)
+        selaf.current_image = 0 #commencer l'anim à l'image 0
+        self.images = animations.get(sprite_name)
 
 
     #definir une methode pour annimer le sprite

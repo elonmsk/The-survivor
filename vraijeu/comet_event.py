@@ -8,7 +8,7 @@ class CometFallEvent:
     #lors du chargement => creer un compteur
     def __init__(self, game):
         self.percent = 0
-        self.percent_speed = 35
+        self.percent_speed = 10
         self.game = game
         self.fall_mode = True
 
@@ -28,7 +28,9 @@ class CometFallEvent:
 
 
     def meteor_fall(self):
-        for i in range (3,10):
+        #boucle pour les valeurs entre 1 et 10
+        for i in range(3, 10):
+            #apparaitre une premiere boule de feu
             self.all_comets.add(Comet(self))
 
 
@@ -37,8 +39,7 @@ class CometFallEvent:
         if self.is_full_loaded() and len(self.game.all_monsters) == 0:
             print("Pluie de cométe !!")
             self.meteor_fall()
-            self.reset_percent()
-            self.fall_mode = True #activer l'evenement
+            self.fall_mode = True  # activer l'evenement
 
 
 
@@ -46,9 +47,6 @@ class CometFallEvent:
 
         #ajouter du pourcentage à la bar
         self.add_percent()
-
-        #appel de la methode pour essayer de declencher pluie de comete
-        self.attempt_fall()
 
 
 

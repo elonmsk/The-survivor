@@ -29,9 +29,12 @@ class Monster(animation.AnimateSprite):
             self.health = self.max_health
 
             # si la barre d'evenement est chargé au max
-            if self.game.comet_event.is_full_loaded:
+            if self.game.comet_event.is_full_loaded():
                 # retirer du jeu
                 self.game.all_monsters.remove(self)
+
+                # appel de la methode pour essayer de declencher pluie de comete
+                self.game.comet_event.attempt_fall()
 
     def update_health_bar(self, surface):
         # dessiner la barre de vie

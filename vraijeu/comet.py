@@ -21,13 +21,12 @@ class Comet(pygame.sprite.Sprite):
             print("l'evenement est fini")
             #remettre la barre a 0
             self.comet_event.reset_percent()
-            #apparaitre les 2 premiers monstre
+            #apparaitre les 3 premiers monstre
             self.comet_event.game.spawn_monster()
             self.comet_event.game.spawn_monster()
             self.comet_event.game.spawn_monster()
-            self.comet_event.game.spawn_monster()
-            self.comet_event.game.spawn_monster()
-            self.comet_event.game.spawn_monster()
+
+
     def fall(self):
         self.rect.y += self.velocity
 
@@ -35,11 +34,14 @@ class Comet(pygame.sprite.Sprite):
         #ne tombe pas sur le sol
         if self.rect.y >+ 500:
             print("sol")
+
             #retirer la boule de feu
             self.comet_event.all_comets.remove(self)
+
             #verifier si il n'y a plus de boule de feu
             if len(self.comet_event.all_comets) == 0:
                 print("l'evenement est fini")
+
                 #remettre la jauge au depart
                 self.comet_event.reset_percent()
                 self.comet_event.fall_mode = False
@@ -48,7 +50,7 @@ class Comet(pygame.sprite.Sprite):
         if self.comet_event.game.check_collision(
                 self, self.comet_event.game.all_players
         ):
-            print("jouer touché")
+            print("Joueur touché !")
             #retirer la boule de feu
             self.remove()
             #subir des degats 20 point de vie
