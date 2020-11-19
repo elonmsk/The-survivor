@@ -1,5 +1,6 @@
 import pygame
 
+
 #définir class qui va s'occuper des animations
 
 class AnimateSprite (pygame.sprite.Sprite):

@@ -2,7 +2,6 @@ import pygame
 import random
 import animation
 
-
 # créer une classe qui gère la notion de monstre sur le jeu
 
 class Monster(animation.AnimateSprite):
@@ -13,7 +12,6 @@ class Monster(animation.AnimateSprite):
         self.health = 100
         self.max_health = 100
         self.attack = 5
-        self.image = pygame.image.load('assets/mummy.png')
         self.rect = self.image.get_rect()
         self.rect.x = 1000 + random.randint(0, 300)
         self.rect.y = 540
